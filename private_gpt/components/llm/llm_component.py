@@ -37,7 +37,7 @@ class LLMComponent:
 
                 self.llm = LlamaCPP(
                     model_path=str(models_path / settings.local.llm_hf_model_file),
-                    temperature=0.1,
+                    temperature=0.25,
                     max_new_tokens=settings.llm.max_new_tokens,
                     context_window=settings.llm.context_window,
                     generate_kwargs={},

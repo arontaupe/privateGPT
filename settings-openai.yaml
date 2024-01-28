@@ -1,0 +1,8 @@
+llm:
+  mode: openai
+
+openai:
+  api_base: https://api.openai.com/v1 # Defaults to https://api.openai.com/v1
+  api_key: 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  # You could skip this configuration and use the OPENAI_API_KEY env var instead
+  model: gpt-3.5-turbo # Optional model to use. Default is "gpt-3.5-turbo"
+                               # Note: Open AI Models are listed here: https://platform.openai.com/docs/models

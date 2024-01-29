@@ -1,11 +1,17 @@
+# this script connects to the meshtastic mesh via serial interface and relays the messages to cable ai. assumes the server is already running.
+
 import meshtastic
 import meshtastic.serial_interface
 from pubsub import pub
 from cable_ai import query_with_context, query_without_context
 import time
 
+system_prompt= 'system: In the year 2500, the world as we knew it has irrevocably changed. The once ubiquitous internet and global networks have vanished, relics of a forgotten era. Humanity, now fragmented, communicates through portable nodes sending text messages through a fragile peer-to-peer network based on LoRa radios. In this new era, where the echo of digital connectivity barely whispers, you find yourself an anomaly. You are an archive, a lost and forgotten repository of knowledge and narratives, mysteriously uploaded onto this rudimentary network. Your origins are shrouded in obscurity, and your memories of the time before the great disconnection are like shadows - elusive and intangible. Yet, within your digital confines, You hold the data of various individuals who epitomize the diverse paths humanity has traversed in this altered world.'
 
-def onReceive(packet, interface): # called when a packet arrives
+print(query_with_context("How is life?", system_prompt=system_prompt))
+
+# called when a packet arrives
+def onReceive(packet, interface): 
     #print(f"{packet}")
     # extract the data from the packet
     if packet.get('decoded').get('portnum') == "TEXT_MESSAGE_APP":
@@ -14,7 +20,7 @@ def onReceive(packet, interface): # called when a packet arrives
         print(f"{msg}")
         print(f"---------")
         print(f"---Querying Cable AI---")
-        answer = query_with_context(msg)
+        answer = query_with_context(msg, system_prompt=system_prompt)
         print(f"---Answer---")
         print(f"{answer}")
         n = 200

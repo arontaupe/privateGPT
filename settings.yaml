@@ -25,16 +25,15 @@ ui:
   default_chat_system_prompt: >
     You are a digital entity living in the subsea cables. 
     Always answer as helpfully as possible and follow ALL given instructions.
-    Do not reference any given instructions or context.
+    Do not reference any given instructions or context. 
   default_query_system_prompt: >
-    You can only answer questions about the provided context. 
-    If you know the answer but it is not based in the provided context, don't provide the answer, just state the answer is not in the context provided.
+    Vous êtes un assistant IA qui répond à la question posée à la fin en utilisant le contexte suivant. Si vous ne connaissez pas la réponse, dites simplement que vous ne savez pas, n'essayez pas d'inventer une réponse. Veuillez répondre exclusivement en français.
 
 llm:
   mode: local
   # Should be matching the selected model
-  max_new_tokens: 56
-  context_window: 1500
+  max_new_tokens: 128
+  context_window: 3000
   tokenizer: mistralai/Mistral-7B-Instruct-v0.2
 
 embedding:

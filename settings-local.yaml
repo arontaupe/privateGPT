@@ -3,4 +3,4 @@ server:
 
 llm:
   mode: local
-  max_new_tokens: 128
+  max_new_tokens: 56

@@ -1,7 +1,8 @@
 # How to run the cable_ai
 
 ## Setup
-PLS Skip if already setup. you will break stuff!! 
+
+PLS Skip if already setup. you will break stuff!!
 
 [Follow instructions](https://docs.privategpt.dev/installation)
 
@@ -31,18 +32,21 @@ make run
 ## Run the cable_ai
 
 Optional: install the SDK:
-    
+
 ```bash
 pip install pgpt_python
 ```
 
 execute cable_ai
+
 ```bash
 python cable_ai.py
 ```
 
-## Optimizations made:
+## Optimizations made
+
 in settings.yaml, change the following:
+
 ```yaml
 
 llm:

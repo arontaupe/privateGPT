@@ -1,4 +1,7 @@
 """This file should be imported only and only if you want to run the UI locally."""
+import sys
+sys.path.append("/Users/aron/.pyenv/shims/gradio")
+
 import itertools
 import logging
 from collections.abc import Iterable

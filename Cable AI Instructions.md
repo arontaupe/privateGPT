@@ -19,6 +19,10 @@ pyenv local 3.12
 
 ```bash
 poetry install --with local
+poetry install --with ui
+```
+
+```bash
 
 poetry run python scripts/setup
 ```

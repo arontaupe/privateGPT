@@ -63,3 +63,16 @@ llm:
   context_window: 2000
   tokenizer: mistralai/Mistral-7B-Instruct-v0.2
 ```
+
+
+## Ingest Documents
+
+```bash 
+make ingest /Users/aron/sdr/ai_narration/ai_training_docs -- --watch --log-file //Users/aron/privateGPT/private_gpt/ingest.log
+```
+
+## Delete all documents
+
+```bash 
+make wipe
+```

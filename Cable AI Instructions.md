@@ -7,22 +7,26 @@ PLS Skip if already setup. you will break stuff!!
 [Follow instructions](https://docs.privategpt.dev/installation)
 
 ```bash
-git clone <https://github.com/imartinez/privateGPT>
+git clone https://github.com/imartinez/privateGPT
 cd privateGPT
+```
 
-
+```bash
 pyenv install 3.11
 pyenv install 3.12
 pyenv local 3.12
+```
 
+```bash
 poetry install --with local
 
 poetry run python scripts/setup
+```
 
 # this is rather iomportant, otherwise gpu not recognized and will run on cpu
 CMAKE_ARGS="-DLLAMA_METAL=on" pip install --force-reinstall --no-cache-dir llama-cpp-python
 
-
+```bash
 make run
 ```
 
@@ -48,7 +52,6 @@ python cable_ai.py
 in settings.yaml, change the following:
 
 ```yaml
-
 llm:
   mode: local
   # Should be matching the selected model

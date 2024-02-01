@@ -1,8 +1,30 @@
 # How to run the cable_ai
 
+this is a documentation file detailing the steps necessary to operate and install the cable ai.
+
+## update notice
+all scripts are aliased now. simply open a terminal and type:
+
+this will start the AI server (and the UI under http://localhost:8001
+```bash
+aether
+```
+once started, open a !!separate!! terminal (while the old one stays active) and type:
+this script assumes that aether has been executed before and is running. 
+it also assumes that a LoRa device is connected via serial (through USB)
+
+```bash
+mesh
+```
+
+now the setup should be up and running. open the Meshtastic app on your phone and connect to the device to start chatting
+
+https://meshtastic.org/downloads
+
 ## Setup
 
-PLS Skip if already setup. you will break stuff!!
+PLS Skip if already setup. You will break stuff!!
+
 
 [Follow instructions](https://docs.privategpt.dev/installation)
 
@@ -23,18 +45,24 @@ poetry install --with ui
 ```
 
 ```bash
-
 poetry run python scripts/setup
 ```
 
-# this is rather iomportant, otherwise gpu not recognized and will run on cpu
+# this is rather important, otherwise gpu not recognized and will run on cpu
+
+```bash
+# only valid for silicon macs
 CMAKE_ARGS="-DLLAMA_METAL=on" pip install --force-reinstall --no-cache-dir llama-cpp-python
+```
 
 ```bash
 make run
+# or cleaner:
+PGPT_PROFILES=local make run
 ```
 
--- server should now run on localhost:8001
+-- server should now run on 
+http://localhost:8001
 (open in browser to check)
 
 ## Run the cable_ai
@@ -51,7 +79,33 @@ execute cable_ai
 python cable_ai.py
 ```
 
+edit: now main execution moved over to meshtastic_handler.py
+
+new execution command:
+
+```bash
+python aethercomms.py
+```
+
+## Ingest Documents
+
+read in all documents from the training docs folder
+
+```bash
+make ingest /Users/aron/sdr/ai_narration/ai_training_docs -- --watch --log-file //Users/aron/privateGPT/private_gpt/ingest.log
+```
+
+## Delete all documents
+
+deletes all ingested documents, useful when trying to get rid of a trained doc.
+
+```bash
+make wipe
+```
+
 ## Optimizations made
+
+Should not be necessary to change for operation, changes are persistent
 
 in settings.yaml, change the following:
 
@@ -64,15 +118,3 @@ llm:
   tokenizer: mistralai/Mistral-7B-Instruct-v0.2
 ```
 
-
-## Ingest Documents
-
-```bash 
-make ingest /Users/aron/sdr/ai_narration/ai_training_docs -- --watch --log-file //Users/aron/privateGPT/private_gpt/ingest.log
-```
-
-## Delete all documents
-
-```bash 
-make wipe
-```

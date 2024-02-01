@@ -12,7 +12,7 @@ print('---starting the mesh interface---')
 
 
 try:
-    client = PrivateGPTApi(base_url="http://localhost:8001")
+    client = PrivateGPTApi(base_url="http://localhost:8001", timeout=180)
     print(client.health.health())
 except Exception as e:
     print("Could not connect to Cable AI. Is it running? Please run './start_ai.sh' in a separate terminal.")
@@ -34,30 +34,6 @@ if debug:
 
 if client.health.health():
     print("--- AI online --- ")
-
-
-def query_without_context(msg, system_prompt):
-    print(client.health.health())
-    if (client.health.health() == "status='ok'"):
-        print("entered check for health")
-    prompt_result = client.contextual_completions.prompt_completion(prompt=msg)
-    return prompt_result.choices[0].message.content
-
-
-def query_with_context(msg, system_prompt):
-    if client.health.health():
-        result = client.contextual_completions.prompt_completion(
-            system_prompt=system_prompt,
-            prompt=msg,
-            use_context=True,
-            include_sources=True, ).choices[0]
-        answer = result.message.content + f" # Source: {result.sources[0].document.doc_metadata['file_name']}"
-
-        return answer
-
-    print("AI offline")
-    return "AI offline. Please find Aron or Joel to reboot it."
-
 
 # called when a packet arrives
 def onReceive(packet, interface):
@@ -81,8 +57,9 @@ def onReceive(packet, interface):
         chunks = [answer[i:i + chunksize] for i in range(0, len(answer), chunksize)]
         print(f"---Sending---")
         for chunk in chunks:
-            send_msg(chunk)
-            # wait 
+            interface.sendText(chunk)
+            print(f"---Sent: --- \n{chunk}")
+            # wait
             time.sleep(0.1)  # ensuring that the messages arrive in correct order
         print(f"---Done. Idling.---")
 
@@ -94,16 +71,36 @@ def onConnection(interface, topic=pub.AUTO_TOPIC):  # called when we (re)connect
         interface.sendText("Aether has connection to mesh")  # TODO better name?
 
 
+
 pub.subscribe(onReceive, "meshtastic.receive")
 pub.subscribe(onConnection, "meshtastic.connection.established")
 
 # By default will try to find a meshtastic device
 interface = meshtastic.serial_interface.SerialInterface()
 
+def query_without_context(msg, system_prompt):
+    print(client.health.health())
+    if (client.health.health() == "status='ok'"):
+        print("entered check for health")
+    prompt_result = client.contextual_completions.prompt_completion(prompt=msg)
+    return prompt_result.choices[0].message.content
 
-def send_msg(msg):
-    interface.sendText(msg)
-    print(f"---Sent: --- /n{msg}")
+
+def query_with_context(msg, system_prompt):
+    if client.health.health():
+        result = client.contextual_completions.prompt_completion(
+            system_prompt=system_prompt,
+            prompt=msg,
+            use_context=True,
+            include_sources=True, ).choices[0]
+        answer = result.message.content
+        if debug:
+            answer += f" # Source: {result.sources[0].document.doc_metadata['file_name']}"
+
+        return answer
+
+    print("AI offline")
+    return "AI offline. Please find Aron or Joel to reboot it."
 
 
 def main():

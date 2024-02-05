@@ -3,14 +3,17 @@
 this is a documentation file detailing the steps necessary to operate and install the cable ai.
 
 ## update notice
+
 all scripts are aliased now. simply open a terminal and type:
 
-this will start the AI server (and the UI under http://localhost:8001
+this will start the AI server (and the UI under <http://localhost:8001>
+
 ```bash
 aether
 ```
+
 once started, open a !!separate!! terminal (while the old one stays active) and type:
-this script assumes that aether has been executed before and is running. 
+this script assumes that aether has been executed before and is running.
 it also assumes that a LoRa device is connected via serial (through USB)
 
 ```bash
@@ -19,12 +22,11 @@ mesh
 
 now the setup should be up and running. open the Meshtastic app on your phone and connect to the device to start chatting
 
-https://meshtastic.org/downloads
+<https://meshtastic.org/downloads>
 
 ## Setup
 
 PLS Skip if already setup. You will break stuff!!
-
 
 [Follow instructions](https://docs.privategpt.dev/installation)
 
@@ -34,6 +36,7 @@ cd privateGPT
 ```
 
 ```bash
+cd
 pyenv install 3.11
 pyenv install 3.12
 pyenv local 3.12
@@ -61,9 +64,17 @@ make run
 PGPT_PROFILES=local make run
 ```
 
--- server should now run on 
-http://localhost:8001
+-- server should now run on
+<http://localhost:8001>
 (open in browser to check)
+
+## Switching between python versions
+
+```bash
+pyenv which python  # should show the current version
+pyenv local 3.12  # switch to 3.12
+pyenv local 3.11  # switch to 3.11
+```
 
 ## Run the cable_ai
 
@@ -117,4 +128,3 @@ llm:
   context_window: 2000
   tokenizer: mistralai/Mistral-7B-Instruct-v0.2
 ```
-

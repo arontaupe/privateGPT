@@ -1,32 +1,50 @@
 # this script connects to the meshtastic mesh via serial interface and relays the messages to cable ai. assumes the server is already running.
 
+import logging
 import meshtastic.serial_interface
 from pubsub import pub
 import time
 from pgpt_python.client import PrivateGPTApi
 import signal
 import sys
+import re
 
-print('---starting the mesh interface---')
+# Configure logging
+logging.basicConfig(filename='logfile.log', 
+level=logging.INFO, 
+format='%(asctime)s - %(levelname)s - %(message)s')
+
+debug = True
+
+# Function to log messages
+def log(log_message=None, printout=None):
+    if log_message:
+        logging.info(log_message)
+    
+    if debug and printout:
+        print(printout)
+
+log(printout='---starting the mesh interface---')
 # Make sure the AI client is running, establish a connection
 
 # By default will try to find a meshtastic device
 interface = meshtastic.serial_interface.SerialInterface()
 
-
 try:
-    print('---connecting to the AI---')
+    log(printout='---connecting to the AI---')
     client = PrivateGPTApi(base_url="http://localhost:8001", timeout=180)
-    print(client.health.health())
+    log(printout=f'--- Health: {client.health.health()} ---')
 except Exception as e:
-    print("Could not connect to Cable AI. Is it running? Please run './start_ai.sh' in a separate terminal.")
+    log(printout="Could not connect to Cable AI. Is it running? Please run './start_ai.sh' in a separate terminal.")
     exit()
 
-debug = True
+if client.health.health():
+    log(log_message='AI online', 
+    printout="--- AI online ---")
 
 system_prompt = ''
 
-print(f'Load system prompt from file')
+log(printout=f'---Load system prompt from file---')
 
 # Open the file in read mode
 with open('/Users/aron/sdr/ai_narration/system_prompt.txt', 'r') as file:
@@ -34,10 +52,9 @@ with open('/Users/aron/sdr/ai_narration/system_prompt.txt', 'r') as file:
     system_prompt = file.read().strip().replace('\n', '').replace('\r\n', '')
 
 if debug:
-    print(f'{system_prompt=}')
+    log(printout=f'{system_prompt=}', 
+    log_message=f'{system_prompt=}')
 
-if client.health.health():
-    print("--- AI online --- ")
 
 # called when a packet arrives
 def onReceive(packet, interface):
@@ -45,13 +62,13 @@ def onReceive(packet, interface):
     # check whether it is an actual text message
     if packet.get('decoded') is None:
         return
-    handle_Packet(packet)
+    handle_Packet(packet, interface)
 
 
 def onConnection(interface, topic=pub.AUTO_TOPIC):  # called when we (re)connect to the radio
     # defaults to broadcast, specify a destination ID if you wish
     if debug:
-        print(f"---Connected---")
+        log(printout=f"---Connected to mesh---")
         interface.sendText("Aether has connection to mesh")  # TODO better name?
 
 
@@ -59,37 +76,59 @@ pub.subscribe(onReceive, "meshtastic.receive")
 pub.subscribe(onConnection, "meshtastic.connection.established")
 
 
-def send_to_mesh(msg):
+def send_to_mesh(msg, interface=interface):
     try:
-        interface.sendText(msg, wantAck=True)
+        interface.sendText(msg, 
+        #wantAck=True
+        )
     except Exception as e:
-        print(f"Could not send message to mesh: {e}")
+        log(printout=f"Could not send message to mesh: {e}", log_message=f"Could not send message to mesh: {e}")
         return
-    print(f"---Sent: --- \n{msg}")
+    log(f"---Sent: --- \n{msg}")
 
 
-def handle_Packet(packet):
+def handle_Packet(packet, interface):
     if packet.get('decoded').get('portnum') == "TEXT_MESSAGE_APP":
-        print(f"---Received Message---")
+        log(f"---Received Message---")
         msg = packet.get('decoded').get('payload').decode('utf-8')
         if debug:
-            print(f"{msg=}")
-            print(f"---------")
-        send_to_mesh("Aether is processing your request.")
-        print(f"---Querying aether---")
+            log(f"{msg=}")
+            log(f"---------")
+        send_to_mesh("Aether is processing your request.", interface=interface)
+        log(f"---Querying aether---")
+        start_time = time.time()
         answer = query_with_context(msg, system_prompt=system_prompt)
+        end_time = time.time()
         if debug:
-            print(f"---Answer---")
-            print(f"{answer}")
-        chunksize = 200  # 228 is the maximum length of a message, but then it mostly fails
-        chunks = [answer[i:i + chunksize] for i in range(0, len(answer), chunksize)]
-        print(f"---Sending---")
+            log(f"---Answer---")
+            log(f"{answer=}")
+            log(f"---Time for query : {int(end_time - start_time)} seconds ---")
+        # Add a small delay before starting to send chunks
+        time.sleep(1)
+
+        chunksize = 150  # 228 is the maximum length of a message, but then it mostly fails. 160 works, but still looses occasional messages. 120 worked well.
+        words = re.findall(r'\S+\s*', answer)  # Split the answer into words
+
+        chunks = []
+        current_chunk = ''
+
+        for word in words:
+            if len(current_chunk) + len(word) <= chunksize:
+                current_chunk += word
+            else:
+                chunks.append(current_chunk)
+                current_chunk = word
+
+        if current_chunk:
+            chunks.append(current_chunk)
+            
+        log(f"---Sending---")
         for chunk in chunks:
             if debug:
-                print(f"{chunk=}")
+                log(f"{chunk=}")
             send_to_mesh(chunk)
-            time.sleep(1)  # wait, ensuring that the messages arrive in correct order
-        print(f"---Done. Idling.---")
+            time.sleep(3)  # wait, ensuring that the messages arrive in correct order
+        log(f"---Done. Idling.---")
 
 def query_with_context(msg, system_prompt):
     if client.health.health():
@@ -105,25 +144,30 @@ def query_with_context(msg, system_prompt):
 
         return answer
 
-    print("AI offline")
-    return "AI offline. Please find Aron or Joel to reboot it."
+    log("---AI offline---")
+    send_to_mesh("AI offline. Please find Aron or Joel to reboot it.")
+    return 
 
-
-def main():
-    print("Press 'Ctrl + c' to exit.")
-
-    # Register the signal handler for graceful shutdown
-    signal.signal(signal.SIGINT, shutdown_gracefully)
-
-    while True:
-        pass
 
 
 def shutdown_gracefully(signal, frame):
-    print("Shutting down...")
+    log("Shutting down...")
     interface.close()
     sys.exit(0)
 
 
-if __name__ == "__main__":
-    main()
+
+log("Press 'Ctrl + c' to exit.")
+
+# Register the signal handler for graceful shutdown
+signal.signal(signal.SIGINT, shutdown_gracefully)
+
+try:
+    while True:
+        pass
+except KeyboardInterrupt:
+    send_to_mesh("Aether is going offline.")
+    pass  # Catch KeyboardInterrupt to gracefully exit the loop on Ctrl+C
+
+# Close the serial interface after the loop
+interface.close()

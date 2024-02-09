@@ -1,10 +1,10 @@
-# How to run the cable_ai
+# How to run the cable_AI
 
-this is a documentation file detailing the steps necessary to operate and install the cable ai.
+this is a documentation file detailing the steps necessary to operate and install the cable AI.
 
 ## update notice
 
-all scripts are aliased now. simply open a terminal and type:
+All scripts are aliased now. Open a terminal and type:
 
 this will start the AI server (and the UI under <http://localhost:8001>
 
@@ -51,7 +51,7 @@ poetry install --with ui
 poetry run python scripts/setup
 ```
 
-# this is rather important, otherwise gpu not recognized and will run on cpu
+# this is rather important, otherwise gpu is not recognized and will run on cpu
 
 ```bash
 # only valid for silicon macs
@@ -90,12 +90,12 @@ execute cable_ai
 python cable_ai.py
 ```
 
-edit: now main execution moved over to meshtastic_handler.py
+edit: now the main execution moved over to meshtastic_handler.py
 
 new execution command:
 
 ```bash
-python aethercomms.py
+python aethercomms_old.py
 ```
 
 ## Ingest Documents

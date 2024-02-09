@@ -14,7 +14,7 @@ logging.basicConfig(filename='logfile.log',
 level=logging.INFO, 
 format='%(asctime)s - %(levelname)s - %(message)s')
 
-debug = True
+debug = False
 
 # Function to log messages
 def log(log_message=None, printout=None):
@@ -106,7 +106,7 @@ def handle_Packet(packet, interface):
         # Add a small delay before starting to send chunks
         time.sleep(1)
 
-        chunksize = 150  # 228 is the maximum length of a message, but then it mostly fails. 160 works, but still looses occasional messages. 120 worked well.
+        chunksize = 140  # 228 is the maximum length of a message, but then it mostly fails. 160 works, but still looses occasional messages. 120 worked well.
         words = re.findall(r'\S+\s*', answer)  # Split the answer into words
 
         chunks = []

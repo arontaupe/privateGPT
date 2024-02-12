@@ -11,7 +11,7 @@ from pubsub import pub
 
 # Configure logging
 logging.basicConfig(filename='logfile.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-debug = False
+debug = True
 
 
 def log_file(log_message):
@@ -114,8 +114,9 @@ def query_with_context(msg, system_prompt, client, interface):
 
     Args:
         msg (str): The message to be sent to the AI.
-        System_prompt (str): The system prompt to be used for AI queries.
+        system_prompt (str): The system prompt to be used for AI queries.
         client: The PrivateGPTApi client for querying the AI.
+        interface: The interface object for communication with the mesh.
 
     Returns:
         str: The AI's response to the query.

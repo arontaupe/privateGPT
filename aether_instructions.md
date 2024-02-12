@@ -51,7 +51,7 @@ poetry install --with ui
 poetry run python scripts/setup
 ```
 
-# this is rather important, otherwise gpu is not recognized and will run on cpu
+## this is rather important, otherwise gpu is not recognized and will run on cpu
 
 ```bash
 # only valid for silicon macs

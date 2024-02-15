@@ -11,7 +11,7 @@ from pubsub import pub
 
 # Configure logging
 logging.basicConfig(filename='logfile.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-debug = True
+debug = False
 
 
 def log_file(log_message):

@@ -235,3 +235,118 @@ and offer speculative analysis on current technological trends. Users # Source: 
 2024-02-12 18:09:34,835 - INFO - ---Time for query : 22 seconds ---
 2024-02-12 18:10:34,040 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
 2024-02-12 18:10:50,179 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:01:58,409 - INFO - ---starting the mesh interface---
+2024-02-13 15:01:59,475 - INFO - HTTP Request: GET http://localhost:8001/health "HTTP/1.1 200 OK"
+2024-02-13 15:01:59,476 - INFO - AI online
+2024-02-13 15:01:59,477 - INFO - Press 'Ctrl + c' to exit.
+2024-02-13 15:02:34,368 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:05:02,238 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:05:29,090 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:05:37,337 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:05:49,876 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:07:37,712 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:14:27,766 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:15:05,791 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:16:09,842 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 15:16:25,558 - INFO - ---Time for query : 30 seconds ---
+2024-02-13 15:18:42,982 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:20:13,547 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:20:40,871 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:20:51,163 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:22:32,564 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:24:27,643 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:24:33,437 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:24:51,209 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 15:25:45,467 - ERROR - Error while handling message from radio Error parsing message
+2024-02-13 15:26:01,600 - WARNING - Meshtastic serial port disconnected, disconnecting... read failed: [Errno 6] Device not configured
+2024-02-13 16:07:39,947 - INFO - ---starting the mesh interface---
+2024-02-13 16:07:52,836 - INFO - ---starting the mesh interface---
+2024-02-13 16:07:53,805 - INFO - HTTP Request: GET http://localhost:8001/health "HTTP/1.1 200 OK"
+2024-02-13 16:07:53,806 - INFO - AI online
+2024-02-13 16:07:53,807 - INFO - Press 'Ctrl + c' to exit.
+2024-02-13 16:09:27,360 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:14:28,801 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:18:45,248 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:20:00,482 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:20:39,810 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:20:53,083 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:22:34,513 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:22:36,809 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:24:27,697 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:29:28,560 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:30:26,686 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:30:27,214 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:30:52,406 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 16:31:01,850 - INFO - ---Time for query : 24 seconds ---
+2024-02-13 16:33:45,321 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:35:02,696 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:35:03,465 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:35:20,994 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:35:57,228 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 16:36:06,633 - INFO - ---Time for query : 23 seconds ---
+2024-02-13 16:36:06,640 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:36:06,664 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:37:41,754 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:38:32,570 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 16:38:51,361 - INFO - ---Time for query : 24 seconds ---
+2024-02-13 16:40:04,707 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:40:30,302 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:40:31,822 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:42:42,312 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:43:42,955 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:44:28,814 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:45:04,957 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 16:45:20,674 - INFO - ---Time for query : 24 seconds ---
+2024-02-13 16:48:44,653 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:49:00,192 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:49:28,549 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:49:36,046 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:50:12,402 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:50:17,175 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:50:37,743 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:50:48,476 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:52:35,380 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:54:23,759 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:55:10,279 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:55:19,556 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:57:37,254 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 16:57:46,654 - INFO - ---Time for query : 16 seconds ---
+2024-02-13 16:58:37,502 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 16:59:29,177 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 17:00:30,350 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 17:01:51,396 - INFO - Shutting down...
+2024-02-13 17:13:59,290 - INFO - ---starting the mesh interface---
+2024-02-13 17:14:00,361 - INFO - HTTP Request: GET http://localhost:8001/health "HTTP/1.1 200 OK"
+2024-02-13 17:14:00,362 - INFO - AI online
+2024-02-13 17:14:00,364 - INFO - Press 'Ctrl + c' to exit.
+2024-02-13 17:14:28,139 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 17:15:09,157 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 17:15:25,952 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 17:18:44,727 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 17:19:00,507 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 17:19:37,307 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 17:19:55,984 - INFO - Shutting down...
+2024-02-13 18:23:26,091 - INFO - ---starting the mesh interface---
+2024-02-13 18:23:27,101 - INFO - HTTP Request: GET http://localhost:8001/health "HTTP/1.1 200 OK"
+2024-02-13 18:23:27,102 - INFO - AI online
+2024-02-13 18:23:27,103 - INFO - Press 'Ctrl + c' to exit.
+2024-02-13 18:24:25,879 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:26:14,859 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:28:16,528 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:29:31,139 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:30:41,064 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:31:16,701 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 18:31:26,125 - INFO - ---Time for query : 24 seconds ---
+2024-02-13 18:32:34,677 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 18:32:44,122 - INFO - ---Time for query : 20 seconds ---
+2024-02-13 18:33:47,361 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:34:05,650 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:34:41,047 - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2024-02-13 18:34:50,437 - INFO - ---Time for query : 19 seconds ---
+2024-02-13 18:34:50,444 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:35:40,529 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:35:43,068 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:35:51,581 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:38:44,786 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:38:48,015 - ERROR - Unexpected error in deferred execution <class 'pubsub.core.topicargspec.SenderUnknownMsgDataError'>
+2024-02-13 18:42:33,153 - INFO - Shutting down...

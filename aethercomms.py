@@ -151,7 +151,8 @@ def send_chunks(answer, interface):
         answer (str): The response message from the AI.
         interface: The interface object for communication with the mesh.
     """
-    chunksize = 140
+    chunksize = 128
+    sleeptime = 3
     words = re.findall(r'\S+\s*', answer)
     chunks = ['']
     for word in words:
@@ -161,7 +162,7 @@ def send_chunks(answer, interface):
             chunks.append(word)
     for chunk in chunks:
         send_to_mesh(chunk, interface)
-        time.sleep(3)
+        time.sleep(sleeptime)
 
 
 def shutdown_gracefully(signal, frame, interface):

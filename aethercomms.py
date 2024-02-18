@@ -105,6 +105,8 @@ def handle_packet(packet, interface, system_prompt, client):
     answer = query_with_context(msg, system_prompt, client, interface)
     end_time = time.time()
     send_chunks(answer, interface)
+    log_file(f'--- prompt: {msg}')
+    log_file(f'--- response: {answer}')
     log_file(f"---Time for query : {int(end_time - start_time)} seconds ---")
 
 

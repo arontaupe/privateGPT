@@ -37,7 +37,7 @@ class LLMComponent:
 
                 self.llm = LlamaCPP(
                     model_path=str(models_path / settings.local.llm_hf_model_file),
-                    temperature=0.5,
+                    temperature=0.8,
                     max_new_tokens=settings.llm.max_new_tokens,
                     context_window=settings.llm.context_window,
                     generate_kwargs={},
@@ -80,3 +80,10 @@ class LLMComponent:
                 )
             case "mock":
                 self.llm = MockLLM()
+            case "ollama":
+                from llama_index.llms import Ollama
+
+                ollama_settings = settings.ollama
+                self.llm = Ollama(
+                    model=ollama_settings.model, base_url=ollama_settings.api_base
+                )

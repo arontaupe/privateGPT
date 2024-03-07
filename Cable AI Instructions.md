@@ -39,12 +39,10 @@ cd privateGPT
 cd
 pyenv install 3.11
 pyenv install 3.12
-pyenv local 3.12
-```
-
-```bash
+pyenv local 3.11
 poetry install --with local
 poetry install --with ui
+pyenv local 3.12
 ```
 
 ```bash
@@ -103,7 +101,7 @@ python aethercomms_old.py
 read in all documents from the training docs folder
 
 ```bash
-make ingest /Users/aron/sdr/ai_narration/ai_training_docs -- --watch --log-file //Users/aron/privateGPT/private_gpt/ingest.log
+make ingest /Users/aron/sdr/ai_narration/ai_training_docs -- --log-file //Users/aron/privateGPT/private_gpt/ingest.log
 ```
 
 ## Delete all documents
